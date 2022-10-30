@@ -33,6 +33,8 @@ async-stream = "0.3.3"
 
 ### Dev Utils ###
 rand = "0.8.5"
+utoipa = { version = "2.2.0", features = ["axum_extras"] }
+utoipa-swagger-ui = { version = "2.0.1", features = ["axum"] }
 
 ### Error Handling + Logging ###
 tracing.workspace = true

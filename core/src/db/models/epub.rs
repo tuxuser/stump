@@ -4,12 +4,13 @@ use epub::doc::{EpubDoc, NavPoint};
 use serde::{Deserialize, Serialize};
 use specta::Type;
 use tracing::error;
+use utoipa::ToSchema;
 
 use crate::{prelude::errors::ProcessFileError, prisma::media};
 
 use super::media::Media;
 
-#[derive(Serialize, Deserialize, Type)]
+#[derive(Serialize, Deserialize, Type, ToSchema)]
 pub struct EpubContent {
 	label: String,
 	content: PathBuf,
@@ -41,6 +42,7 @@ TODO: convert spine into this structure to match epub.js
 }
 */
 
+// FIXME: ToSchema not working here...
 #[derive(Serialize, Deserialize, Type)]
 pub struct Epub {
 	/// This is the epub's record in Stump's database

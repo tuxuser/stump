@@ -1,12 +1,13 @@
 use serde::{Deserialize, Serialize};
 use specta::Type;
 use tracing::trace;
+use utoipa::ToSchema;
 
 use crate::prelude::DirectoryListing;
 
 use super::Direction;
 
-#[derive(Debug, Deserialize, Serialize, Type)]
+#[derive(Debug, Deserialize, Serialize, Type, ToSchema)]
 pub struct PagedRequestParams {
 	pub unpaged: Option<bool>,
 	pub zero_based: Option<bool>,
@@ -21,7 +22,7 @@ pub struct PageBounds {
 	pub take: i64,
 }
 
-#[derive(Debug, Serialize, Clone, Type)]
+#[derive(Debug, Serialize, Clone, Type, ToSchema)]
 pub struct PageParams {
 	pub zero_based: bool,
 	pub page: u32,
@@ -101,7 +102,7 @@ pub struct PageLinks {
 	pub next: Option<String>,
 }
 
-#[derive(Serialize, Type)]
+#[derive(Serialize, Type, ToSchema)]
 pub struct PageInfo {
 	/// The number of pages available.
 	pub total_pages: u32,
@@ -131,7 +132,7 @@ impl PageInfo {
 	}
 }
 
-#[derive(Serialize, Type)]
+#[derive(Serialize, Type, ToSchema)]
 pub struct Pageable<T: Serialize> {
 	/// The target data being returned.
 	pub data: T,

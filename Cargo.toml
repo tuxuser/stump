@@ -34,6 +34,7 @@ tokio = { version = "1.21.2", features = [
 ### DEV UTILS ###
 # specta = "0.0.2"
 specta = "0.0.4"
+utoipa = { version = "2.2.0" }
 
 ### Error Handling + Logging ###
 tracing = "0.1.36"

@@ -3,6 +3,7 @@ pub mod event_manager;
 use serde::{Deserialize, Serialize};
 use specta::Type;
 use tokio::sync::oneshot;
+use utoipa::ToSchema;
 
 use crate::{
 	db::models::Media,
@@ -24,7 +25,7 @@ pub enum ClientResponse {
 	GetJobReports(Vec<JobReport>),
 }
 
-#[derive(Clone, Serialize, Deserialize, Debug, Type)]
+#[derive(Clone, Serialize, Deserialize, Debug, Type, ToSchema)]
 #[serde(tag = "key", content = "data")]
 pub enum CoreEvent {
 	JobStarted(JobUpdate),

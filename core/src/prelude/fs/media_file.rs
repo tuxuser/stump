@@ -2,6 +2,7 @@ use std::path::PathBuf;
 
 use serde::{Deserialize, Serialize};
 use specta::Type;
+use utoipa::ToSchema;
 
 pub struct ProcessedMediaFile {
 	pub thumbnail_path: Option<PathBuf>,
@@ -12,7 +13,7 @@ pub struct ProcessedMediaFile {
 }
 
 // Derived from ComicInfo.xml
-#[derive(Debug, Serialize, Deserialize, PartialEq, Eq, Type, Default)]
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq, Type, ToSchema, Default)]
 pub struct MediaMetadata {
 	#[serde(rename = "Series")]
 	pub series: Option<String>,

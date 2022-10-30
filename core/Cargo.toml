@@ -21,6 +21,8 @@ serde-xml-rs = "0.5.1" # used for serializing/deserializing xml
 itertools = "0.10.5"
 optional_struct = "0.2.0"
 
+utoipa.workspace = true
+
 ### FILESYSTEM UTILS ###
 walkdir = "2.3.2"
 globset = "0.4.9"

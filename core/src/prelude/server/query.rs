@@ -1,12 +1,13 @@
 use serde::{Deserialize, Serialize};
 use specta::Type;
+use utoipa::ToSchema;
 
 use crate::{
 	prelude::{errors::CoreError, server::pageable::PageParams},
 	prisma::{media, series},
 };
 
-#[derive(Debug, Serialize, Deserialize, Clone, Type)]
+#[derive(Debug, Serialize, Deserialize, Clone, Type, ToSchema)]
 pub enum Direction {
 	#[serde(rename = "asc")]
 	Asc,
